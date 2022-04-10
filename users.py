@@ -22,21 +22,24 @@ class Users:
     def setVideoFile(self, filename):  # Puts video file in your account if it is already in the directory
         if filename[-4:] != ".mp4":
             print(filename + " is not an .mp4 file. It has not been added to your account.")
-            return
-        file = Path(filename)
-        if file.is_file():
-            print(filename + " is in the directory and has been added to your account.")
-            self.filename.append(filename)
         else:
-            print(filename + " does NOT exist in the directory and has not been added to your account.")
+            file = Path(filename)
+            if file.is_file():
+                print(filename + " is in the directory and has been added to your account.")
+                self.filename.append(filename)
+            else:
+                print(filename + " does NOT exist in the directory and has not been added to your account.")
 
     def setCSVFile(self, filename):  # Puts .csv file in your account if it is already in the directory
-        file = Path(filename)
-        if file.is_file():
-            print(filename + " is in the directory and has been added to your account.")
-            self.csvfile.append(filename)
+        if filename[-4:] != ".csv":
+            print(filename + " is not an .csv file. It has not been added to your account.")
         else:
-            print(filename + " does NOT exist in the directory and has not been added to your account.")
+            file = Path(filename)
+            if file.is_file():
+                print(filename + " is in the directory and has been added to your account.")
+                self.filename.append(filename)
+            else:
+                print(filename + " does NOT exist in the directory and has not been added to your account.")
 
     def getName(self):  # Returns name set on account. Returns guest if no name was set.
         return self.name
