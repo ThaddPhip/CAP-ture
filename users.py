@@ -1,6 +1,6 @@
 # User class that has many features including setting names, uploading files (.mp4 or .csv) and playing videos
 from pathlib import Path  # Necessary for determining if a file is in the directory
-import PlayVideo  # Necessary for video playback
+import playVideo  # Necessary for video playback
 
 
 class Users:
@@ -59,9 +59,9 @@ class Users:
         print(filename + " does NOT exist.")
         return 0
 
-    def playVideo(self, filename):  # Imports PlayVideo.py | If .mp4 file exist on the account, play it.
+    def playVideo(self, filename):  # Imports playVideo.py | If .mp4 file exist on the account, play it.
         if self.videoFileExist(filename):
-            PlayVideo.playVideo(filename)
+            playVideo.playVideo(filename)
 
 
 # Code for debugging purposes
