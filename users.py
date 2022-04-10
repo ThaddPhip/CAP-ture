@@ -65,27 +65,27 @@ class Users:
 
 
 # Code for debugging purposes
-Andrew = Users()  # Creating User "Andrew" and putting 2 files in his account
-Andrew.setName("Andrew")
-Andrew.setVideoFile("test.mp4")
-Andrew.setVideoFile("test2.mp6")
-
-print()
-
-Isaias = Users()  # Creating User "Isaias" and putting 1 files in his account
-Isaias.setName("Isaias")
-Isaias.setVideoFile("test3.mp4")
-
-print()
-
-LJ = Users()  # Creating Guest User "LJ" and putting no files in her account
-print("The name of this account is: " + LJ.name)
-
-print()
-
-Andrew.videoFileExist("test2.mp4")
-
-Isaias.playVideo("test.mp4")
-Andrew.playVideo("test.mp4")
-
-print("\nEnd of program.\n")
+# Andrew = Users()  # Creating User "Andrew" and putting 2 files in his account
+# Andrew.setName("Andrew")
+# Andrew.setVideoFile("test.mp4")
+# Andrew.setVideoFile("test2.mp6")
+#
+# print()
+#
+# Isaias = Users()  # Creating User "Isaias" and putting 1 files in his account
+# Isaias.setName("Isaias")
+# Isaias.setVideoFile("test3.mp4")
+#
+# print()
+#
+# LJ = Users()  # Creating Guest User "LJ" and putting no files in her account
+# print("The name of this account is: " + LJ.name)
+#
+# print()
+#
+# Andrew.videoFileExist("test2.mp4")
+#
+# Isaias.playVideo("test.mp4")
+# Andrew.playVideo("test.mp4")
+#
+# print("\nEnd of program.\n")
