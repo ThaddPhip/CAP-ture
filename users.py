@@ -1,6 +1,8 @@
-# User class that has many features including setting names, uploading files (.mp4 or .csv) and playing videos
+# User class that has many features including setting names, uploading files (.mp4 or .csv), playing videos,
+# and receiving quotes
 from pathlib import Path  # Necessary for determining if a file is in the directory
 import playVideo  # Necessary for video playback
+from quotes import Quotes  # Necessary for getting quotes
 
 
 class Users:
@@ -10,9 +12,10 @@ class Users:
         self.name = "Guest"
         self.filename = []
         self.csvfile = []
+        self.quotes = Quotes()
         print("New account created.")
 
-    def __del__(self):
+    def __del__(self):  # Don't worry about this. This is for memory purposes
         print("Deleting " + self.name + ".")
 
     def setName(self, name):  # Allows the user to change their account name to any string
@@ -37,7 +40,7 @@ class Users:
             file = Path(filename)
             if file.is_file():
                 print(filename + " is in the directory and has been added to your account.")
-                self.filename.append(filename)
+                self.csvfile.append(filename)
             else:
                 print(filename + " does NOT exist in the directory and has not been added to your account.")
 
@@ -55,7 +58,7 @@ class Users:
 
     def csvFileExist(self, filename):  # Returns 1 if .csv file exists on the account. Returns 0 otherwise.
         print("Searching for filename \"" + filename + "\" in \"" + self.name + "\"")
-        for i in self.filename:
+        for i in self.csvfile:
             if filename == i:
                 print(filename + " exist.")
                 return 1
@@ -65,6 +68,21 @@ class Users:
     def playVideo(self, filename):  # Imports playVideo.py | If .mp4 file exist on the account, play it.
         if self.videoFileExist(filename):
             playVideo.playVideo(filename)
+
+    def getQuote(self):  # Returns a random quote from our pre-made quotes list
+        print(self.quotes.giveRandomQuote())
+
+    def addQuote(self, string):  # Add a quote to the quote list
+        self.quotes.addQuote(string)
+
+    def getQuoteTot(self):  # returns an integer, the total number of elements in the quote list
+        return self.quotes.giveQuoteTot()
+
+    def listQuotes(self):  # Prints a list of all the quotes in the quote list
+        self.quotes.listQuotes()
+
+    def delQuote(self, index):  # Delete a quote from the quote list given an index
+        self.quotes.delQuote(index)
 
 
 # Code for debugging purposes
@@ -90,5 +108,10 @@ class Users:
 #
 # Isaias.playVideo("test.mp4")
 # Andrew.playVideo("test.mp4")
+#
+# print()
+#
+# Andrew.getQuote()
+# Isaias.getQuote()
 #
 # print("\nEnd of program.\n")
