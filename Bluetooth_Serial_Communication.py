@@ -1,5 +1,6 @@
 # This program sends a flag to a bluetooth module so that it starts
 # recoding a video
+# important pins: p4 (TX) p5(RX)
 
 import serial.tools.list_ports
 
@@ -28,13 +29,18 @@ while True:
         packet = serialInst.readline()
         print(packet.decode('utf'))
 
-    #flag = input("send flag to openMV: ")
-    #serialInst.write(flag.encode('utf-8'))
-    #if flag == 'exit':
-     #   exit()
-    #if flag == '1':
-     #   serialInst.write(flag.encode('utf-8'))
-      #  flag = 0
+    flag = input("send flag to openMV: ")
+    serialInst.write(flag.encode('utf-8'))
+    if flag == 'exit':
+        exit()
+    if flag == '1':
+        serialInst.write(flag.encode('utf-8'))
+        flag = 0
+
+    if serialInst.in_waiting:
+        packet = serialInst.readline()
+        print(packet.decode('utf'))
+
 
 
 
