@@ -3,6 +3,7 @@
 from pathlib import Path  # Necessary for determining if a file is in the directory
 import playVideo  # Necessary for video playback
 from quotes import Quotes  # Necessary for getting quotes
+from Bluetooth_Serial_Communication import record
 
 
 class Users:
@@ -84,10 +85,14 @@ class Users:
     def delQuote(self, index):  # Delete a quote from the quote list given an index
         self.quotes.delQuote(index)
 
+    @staticmethod
+    def recordVid():
+        record()
+
 
 # Code for debugging purposes
-# Andrew = Users()  # Creating User "Andrew" and putting 2 files in his account
-# Andrew.setName("Andrew")
+Andrew = Users()  # Creating User "Andrew" and putting 2 files in his account
+Andrew.setName("Andrew")
 # Andrew.setVideoFile("test.mp4")
 # Andrew.setVideoFile("test2.mp6")
 #
@@ -113,5 +118,7 @@ class Users:
 #
 # Andrew.getQuote()
 # Isaias.getQuote()
-#
-# print("\nEnd of program.\n")
+
+# Andrew.recordVid()
+
+print("\nEnd of program.\n")
